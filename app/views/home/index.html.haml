@@ -1,4 +1,48 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+.row.pull-center
+  - if user_signed_in?
+    = link_to 'Create a Challenge', new_user_challenge_path(current_user) , { :class => 'btn btn-success btn-xlarge', :id => 'challenge' } 
+  - else 
+    = link_to 'Create a Challenge', new_user_session_path , { :class => 'btn btn-success btn-xlarge', :id => 'challenge' } 
+
+.row
+  .span5.offset1
+    .leaderboard
+      %h2 Recent Challenges
+      .entries
+        - @challenges.each do |challenge|
+          .entry
+            = image_tag avatar_url(challenge.user), :class => "style_image"
+            .pull-right
+              - if challenge.prize 
+                %p #{challenge.prize } prize
+              - elsif challenge.points
+                %p #{challenge.points } points
+
+            %h3 
+              = link_to challenge.title, challenge_path(challenge)
+            %p 
+              Posted #{ time_ago_in_words(challenge.created_at) } ago by:
+            = link_to challenge.user.name+"(#{challenge.challengable.points})", challenge.challengable, :class => 'user'
+
+            - if user_signed_in?
+              = link_to 'Accept', new_entry_path(current_user, challenge), {  :class => 'btn btn-success btn-mini pull-right'  }
+            - else
+              = link_to 'Accept', new_user_session_path , {  :class => 'btn btn-success btn-mini pull-right' }
+            ACCEPTED BY:</br>
+            - challenge.entries.each do |entry|
+              = link_to (image_tag avatar_url(entry.user, 30), :title => entry.user.name), entry.user
+
+  .span5
+    .leaderboard
+      %h2 Recent Winners
+      .entries
+        - @entries.each do |entry|
+        .entry
+        = image_tag avatar_url(entry.user), :class => "style_image"
+          %h4 
+            = link_to entry.user.name, entry.user, :class => 'user'
+            %span{:class => "label label-success"}
+              = entry.user.points
+          %p
+            %h4{:class => "grey"}
+              = entry.challenge.title

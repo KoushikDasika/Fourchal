@@ -1,3 +1,15 @@
 @import "bootstrap";
-body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+.btn {
+  &.btn-xlarge {
+    padding: 20px 40px;
+    font-size: 38px;
+    color: white;
+  }
+}
+
+.navbar-inner {
+  @include gradient-vertical(#5cc04e, #11950f);
+}
+

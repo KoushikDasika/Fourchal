@@ -28,3 +28,4 @@ gem "rolify", ">= 3.2.0"
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'spine-rails'
 gem 'eco'
+gem 'spork'
