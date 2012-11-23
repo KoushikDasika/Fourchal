@@ -2,16 +2,23 @@ Given /^I am on the Fourchal homepage$/ do
   visit('/')
 end
 
+And /^I should see the error message banner$/ do
+  page.should have_content "errors prohibited this competition from being saved:"
+end
+
 And /^I should see the competition information$/ do
   page.should have_content "Competition was successfully created."
   page.should have_content "New competition"
   page.should have_content (@date - 1.day).strftime("%Y-01-%d")
   page.should have_content @date.strftime("%Y-01-%d")
-
 end
 
-And /^I fill in the new competition form$/ do
-  @date = DateTime.now + 2.years
+And /^I fill in the new competition form (correctly|incorrectly)$/ do |validity|
+  if validity == "correctly"
+    @date = DateTime.now + 2.years
+  elsif validity == "incorrectly"
+    @date = DateTime.now - 2.years
+  end
   within("#new_competition") do
     fill_in 'Name', :with => "New competition"
     select(@date.year, :from => 'competition_startTime_1i')

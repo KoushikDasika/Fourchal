@@ -15,12 +15,13 @@ Feature: Create New Competition
     Given I am logged in
     And I am on the Fourchal homepage
     When I follow "Create a Competition"
-    And I fill in the new competition form
+    And I fill in the new competition form correctly
     And I should see the competition information
 
+  @javascript
   Scenario: A Signed In User creates an invalid competition
     Given I am logged in
     And I am on the Fourchal homepage
     When I follow "Create a Competition"
-    And I create an invalid competition
-    Then a competition should not be created
+    And I fill in the new competition form incorrectly
+    Then I should see the error message banner
