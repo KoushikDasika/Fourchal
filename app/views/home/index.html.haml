@@ -1,9 +1,9 @@
--#
-  .row.pull-center
-    - if user_signed_in?
-      = link_to 'Create a Challenge', new_user_challenge_path(current_user) , { :class => 'btn btn-success btn-xlarge', :id => 'challenge' } 
-    - else 
-      = link_to 'Create a Challenge', new_user_session_path , { :class => 'btn btn-success btn-xlarge', :id => 'challenge' } 
+
+.row.pull-center
+  - if user_signed_in?
+    = link_to 'Create a Competition', new_user_competition_path(current_user) , { :class => 'btn btn-success btn-xlarge', :id => 'competition' } 
+  - else 
+    = link_to 'Create a Competition', new_user_session_path , { :class => 'btn btn-success btn-xlarge', :id => 'competition' } 
 
 -#
   .row
