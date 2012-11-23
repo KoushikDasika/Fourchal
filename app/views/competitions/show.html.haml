@@ -1,6 +1,9 @@
 %p#notice= notice
 
 %p
+  %b Name of the Competition:
+  = @competition.name
+%p
   %b Starttime:
   = @competition.startTime
 %p
@@ -8,7 +11,7 @@
   = @competition.endTime
 %p
   %b User:
-  = @competition.user
+  = @competition.user.name
 
 = link_to 'Edit', edit_competition_path(@competition)
 \|

@@ -5,6 +5,10 @@
   - else 
     = link_to 'Create a Competition', new_user_session_path , { :class => 'btn btn-success btn-xlarge', :id => 'competition' } 
 
+
+.users
+  - @users.each do |user|
+    - user.name
 -#
   .row
     .span5.offset1

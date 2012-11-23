@@ -11,6 +11,5 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :competitions_attributes
 
   has_many :competitions
-  accepts_nested_attributes_for :competitions
   
 end

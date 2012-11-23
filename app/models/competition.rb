@@ -2,11 +2,7 @@ class Competition < ActiveRecord::Base
   belongs_to :user
   attr_accessible :endTime, :startTime, :name
 
-  validates :user_id, :presence => true
-  validates :endTime, :presence => true
-  validates :startTime, :presence => true
-  validates :name, :presence => true
-
+  validates :endTime, :startTime, :name, :presence => true
 
   validate :start_date_cannot_be_in_the_past,
            :end_date_cannot_be_in_the_past,

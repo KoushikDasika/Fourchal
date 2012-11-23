@@ -41,8 +41,9 @@ class CompetitionsController < ApplicationController
   # POST /users/1/competitions.json
   def create
     @user = User.find(current_user)
-    @competition = @user.competitions.create(:startTime => params[:startTime],
-                                             :endTime => params[:endTime])
+    @competition = @user.competitions.create(params[:competition]) #:name => params[:name],
+                                              #:startTime => params[:startTime],
+                                              #:endTime => params[:endTime])
 
     respond_to do |format|
       if @competition.save
