@@ -9,7 +9,8 @@
 .users
   %h2 Users
   - @users.each do |user|
-    = user.name
+    = link_to user.name, user_path(user)
+    %br
 
 //Test User
 -#
