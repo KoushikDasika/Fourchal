@@ -3,3 +3,9 @@
   User: #{@user.name}
 %p
   Email: #{@user.email if @user.email}
+
+.competitions
+  %h4 My Competitions
+  - @user.competitions.each do |competition|
+    = link_to competition.name, user_competition_path(@user, competition)
+    %br
