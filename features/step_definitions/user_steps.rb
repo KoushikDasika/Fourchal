@@ -32,8 +32,8 @@ def sign_up
   visit '/users/sign_up'
   fill_in "Name", :with => @visitor[:name]
   fill_in "Email", :with => @visitor[:email]
-  fill_in "Password", :with => @visitor[:password]
-  fill_in "Password confirmation", :with => @visitor[:password_confirmation]
+  find("#password_field").set @visitor[:password]
+  find("#password_confirmation_field").set @visitor[:password_confirmation]
   click_button "Sign up"
   find_user
 end
@@ -186,6 +186,6 @@ Then /^I should see an account edited message$/ do
 end
 
 Then /^I should see my name$/ do
-  create_user
+  #create_user
   page.should have_content @user[:name]
 end

@@ -12,10 +12,10 @@
   %div
     = f.label :password
     %br/
-    = f.password_field :password
+    = f.password_field :password, :id => "password_field"
   %div
     = f.label :password_confirmation
     %br/
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, :id => "password_confirmation_field"
   %div= f.submit "Sign up"
 = render "devise/shared/links"

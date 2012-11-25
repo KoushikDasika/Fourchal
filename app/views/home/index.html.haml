@@ -7,8 +7,11 @@
 
 
 .users
+  %h2 Users
   - @users.each do |user|
-    - user.name
+    = user.name
+
+//Test User
 -#
   .row
     .span5.offset1
