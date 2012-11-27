@@ -1,7 +1,7 @@
 Feature: Create New Competition
   In order to create a new competition
   As a user
-  I need to enter the valid information
+  I need to enter valid information
 
 
   Scenario: An unsigned In User attempts to create a Competition
@@ -16,6 +16,7 @@ Feature: Create New Competition
     And I am on the Fourchal homepage
     When I follow "Create a Competition"
     And I fill in the new competition form correctly with the name "New competition"
+    And I click the "Save" button
     And I should see the competition information
 
   @javascript
@@ -24,4 +25,5 @@ Feature: Create New Competition
     And I am on the Fourchal homepage
     When I follow "Create a Competition"
     And I fill in the new competition form incorrectly with the name "New competition"
+    And I click the "Save" button
     Then I should see the error message banner

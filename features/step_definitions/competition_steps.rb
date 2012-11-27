@@ -38,7 +38,7 @@ And /^I fill in the (new|edit) competition form (correctly|incorrectly) with the
     select("January", :from => 'competition_endTime_2i')
     select(@date.day, :from => 'competition_endTime_3i')
   end
-  click_button('Save')
+  #click_button('Save')
 
 end
 
