@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121123004725) do
+ActiveRecord::Schema.define(:version => 20121125032151) do
+
+  create_table "challenges", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "start"
+    t.datetime "stop"
+    t.boolean  "limit"
+    t.string   "validation"
+    t.integer  "points"
+    t.string   "prize"
+    t.string   "badge"
+    t.boolean  "complete"
+    t.integer  "competition_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "challenges", ["competition_id"], :name => "index_challenges_on_competition_id"
 
   create_table "competitions", :force => true do |t|
     t.datetime "startTime"

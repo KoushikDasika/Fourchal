@@ -2,16 +2,16 @@
 
 FactoryGirl.define do
   factory :challenge do
+    association :competition, strategy: :create
     title "MyString"
     description "MyText"
-    start "2012-11-24 22:21:51"
-    stop "2012-11-24 22:21:51"
+    start { DateTime.now + 2.days}
+    stop  { DateTime.now + 2.days + 2.hours}
     limit false
     validation "MyString"
     points 1
     prize "MyString"
     badge "MyString"
     complete false
-    competition nil
   end
 end
