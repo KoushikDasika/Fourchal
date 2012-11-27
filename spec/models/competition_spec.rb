@@ -11,21 +11,14 @@ describe Competition do
     @competition.should be_valid
   end
 
-  it "should be invalid without a name" do
-    #user = User.find(1)
-    competition = @user.competitions.new(:name => nil, :endTime => (DateTime.now + 10.years), :startTime => (DateTime.now + 9.years))
-    competition.should_not be_valid
+  it "should validate the presence of its key attributes" do
+    subject.should validate_presence_of(:name)
+    subject.should validate_presence_of(:startTime)
+    subject.should validate_presence_of(:endTime)
   end
 
-  it "should be invalid without a startTime" do
-    #user = User.find(1)
-    competition = @user.competitions.new(:name => "First Competition", :endTime => (Time.now + 10.years), :startTime => nil)
-    competition.should_not be_valid
-  end
-
-  it "should be invalid without a end time" do
-    #user = User.find(1)
-    competition = @user.competitions.new(:name => "First Competition", :startTime => (Time.now + 10.years), :endTime => nil)
+  it "should have the startTime before the endTime" do
+    competition = @user.competitions.create(:name => "First Competition", :startTime => (Time.now + 10.years), :endTime => (Time.now + 9.years))
     competition.should_not be_valid
   end
 
