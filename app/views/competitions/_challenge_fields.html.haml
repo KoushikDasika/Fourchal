@@ -1,7 +1,29 @@
 %fieldset
+  %h3 Challenge
   =f.label :title
-  %br
   =f.text_field :title
+
+  =f.label :description
+  =f.text_area :description
+
+  =f.label :start
+  =f.datetime_select :start
+
+  =f.label :stop
+  =f.datetime_select :stop
+
+  =f.label "What is the password for completion"
+  =f.text_field :validation
+
+  =f.label :points
+  =f.number_field :points
+
+  =f.label :prize
+  =f.text_field :prize
+
+  =f.label :badge
+  =f.text_field :badge
+
   %br
   =f.hidden_field :_destroy
   =link_to "Remove", '#', class: "remove_fields"
