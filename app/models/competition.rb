@@ -1,12 +1,15 @@
 class Competition < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :endTime, :startTime, :name
+  attr_accessible :endTime, :startTime, :name, :challenges_attributes
 
   validates :endTime, :startTime, :name, :presence => true
 
   validate :start_date_cannot_be_in_the_past,
            :end_date_cannot_be_in_the_past,
            :dates_should_have_a_valid_range
+
+  has_many :challenges
+  accepts_nested_attributes_for :challenges, allow_destroy: true
 
 
   def start_date_cannot_be_in_the_past

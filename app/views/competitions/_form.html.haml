@@ -15,5 +15,11 @@
   .field
     = f.label :endTime
     = f.datetime_select :endTime
+
+  .challenge
+    - f.fields_for :challenges do |builder|
+      = render "challenge_fields", f: builder
+    = link_to_add_fields "Add Challenge", f, :challenges
+
   .actions
     = f.submit 'Save'
