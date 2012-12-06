@@ -14,7 +14,11 @@ And /^I should see the competition information$/ do
   page.should have_content "Competition was successfully created."
   page.should have_content "New competition"
   page.should have_content (@date - 1.day).strftime("%Y-01-%d")
-  page.should have_content @date.strftime("%Y-01-%d")
+  if @date.day == 1
+    page.should have_content @date.strftime("%Y-02-%d")
+  else
+    page.should have_content @date.strftime("%Y-01-%d")
+  end
 end
 
 And /^I fill in the (new|edit) competition form (correctly|incorrectly) with the name "([^"]*)"$/ do |type, validity, name|
@@ -35,7 +39,11 @@ And /^I fill in the (new|edit) competition form (correctly|incorrectly) with the
     select(@date.day, :from => 'competition_startTime_3i')
     @date += 1.days
     select(@date.year, :from => 'competition_endTime_1i')
-    select("January", :from => 'competition_endTime_2i')
+    if(@date.day == 1)
+      select("February", :from => 'competition_endTime_2i')
+    else
+      select("January", :from => 'competition_endTime_2i')
+    end
     select(@date.day, :from => 'competition_endTime_3i')
   end
   #click_button('Save')

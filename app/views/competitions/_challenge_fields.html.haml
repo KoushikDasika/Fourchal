@@ -6,23 +6,29 @@
   =f.label :description
   =f.text_area :description
 
-  =f.label :start
-  =f.datetime_select :start
+  -#
+    =f.label :start
+    =f.datetime_select :start
 
-  =f.label :stop
-  =f.datetime_select :stop
+    =f.label :stop
+    =f.datetime_select :stop
 
-  =f.label "What is the password for completion"
+  =f.label :validation
   =f.text_field :validation
 
-  =f.label :points
-  =f.number_field :points
+  =f.label :badge
+  =f.text_field :badge
+
+  -#
+    =f.label :limit
+    =f.radio_button :limit, "yes", true
+    =f.radio_button :limit, "no", false
 
   =f.label :prize
   =f.text_field :prize
 
-  =f.label :badge
-  =f.text_field :badge
+  =f.label :points
+  =f.number_field :points
 
   %br
   =f.hidden_field :_destroy
