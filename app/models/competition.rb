@@ -1,5 +1,9 @@
 class Competition < ActiveRecord::Base
   belongs_to :user
+
+  has_many :competition_entries
+  has_many :challenge_entries, :through => :competition_entries
+
   attr_accessible :endTime, :startTime, :name, :challenges_attributes
 
   validates :endTime, :startTime, :name, :presence => true

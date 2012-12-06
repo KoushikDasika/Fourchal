@@ -1,5 +1,4 @@
 Fourchal::Application.routes.draw do
-
   authenticated :user do
     root :to => 'home#index'
   end
@@ -8,7 +7,9 @@ Fourchal::Application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :competitions
+    resources :competition_entries do
+      resources :challenge_entries
+    end
   end
 
   resources :competitions

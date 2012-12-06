@@ -75,7 +75,7 @@ end
 
 
 And /^then I go to the edit competition page$/ do
-  visit(user_competition_path(@competition.user, @competition))
+  visit(competition_path(@competition))
 end
 
 Then /^I should be directed to the login screen$/ do

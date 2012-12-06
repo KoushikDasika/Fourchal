@@ -15,7 +15,7 @@
       %td= competition.endTime
       %td= competition.user.name
       %td= link_to 'Show', competition
-      %td= link_to 'Edit', edit_user_competition_path(competition.user, competition)
+      %td= link_to 'Edit', edit_competition_path(competition)
       %td= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br

@@ -7,5 +7,11 @@
 .competitions
   %h4 My Competitions
   - @user.competitions.each do |competition|
-    = link_to competition.name, user_competition_path(@user, competition)
+    = link_to competition.name, competition_path(competition)
+    %br
+
+.competition_entries
+  %h4 My Competition Entries
+  - @user.competition_entries.each do |entry|
+    = link_to entry.competition.name, user_competition_entry_path(@user, entry)
     %br

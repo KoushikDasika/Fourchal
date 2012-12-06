@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125032151) do
+ActiveRecord::Schema.define(:version => 20121206210627) do
+
+  create_table "challenge_entries", :force => true do |t|
+    t.integer  "competition_entry_id"
+    t.integer  "challenge_id"
+    t.boolean  "complete"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "challenge_entries", ["challenge_id"], :name => "index_challenge_entries_on_challenge_id"
+  add_index "challenge_entries", ["competition_entry_id"], :name => "index_challenge_entries_on_competition_entry_id"
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
@@ -30,6 +41,16 @@ ActiveRecord::Schema.define(:version => 20121125032151) do
   end
 
   add_index "challenges", ["competition_id"], :name => "index_challenges_on_competition_id"
+
+  create_table "competition_entries", :force => true do |t|
+    t.integer  "competition_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "competition_entries", ["competition_id"], :name => "index_competition_entries_on_competition_id"
+  add_index "competition_entries", ["user_id"], :name => "index_competition_entries_on_user_id"
 
   create_table "competitions", :force => true do |t|
     t.datetime "startTime"
