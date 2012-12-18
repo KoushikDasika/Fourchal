@@ -12,5 +12,9 @@ Fourchal::Application.routes.draw do
     end
   end
 
-  resources :competitions
+  resources :competitions do
+    resources :competition_entries do
+      resources :challenge_entries
+    end
+  end
 end

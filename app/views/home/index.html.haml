@@ -33,8 +33,8 @@
 
             - if user_signed_in?
               = link_to 'Accept',
-                new_user_competition_entry_challenge_entry_path(current_user, competition),
-                {  :class => 'btn btn-success btn-mini pull-right'  }
+                new_competition_competition_entry_path(competition),
+                {  :class => 'btn btn-success btn-mini pull-right', :id => "competition_#{competition.id}"  }
             - else
               = link_to 'Accept',
                 new_user_session_path ,

@@ -189,3 +189,7 @@ Then /^I should see my name$/ do
   #create_user
   page.should have_content @user[:name]
 end
+
+Then /^show me the page$/ do
+  save_and_open_page
+end

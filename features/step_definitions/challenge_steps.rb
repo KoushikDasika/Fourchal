@@ -1,6 +1,5 @@
 Given /^I add challenges to the competition form with the following values:$/ do |table|
   @table = table.raw
-  puts @table
   @table[1..@table.length].each do |row|
     click_link "Add Challenge"
     fieldset = all('fieldset').last
@@ -17,7 +16,6 @@ end
 
 And /^I should see the challenges information:$/ do |table|
   @data = table.raw
-  puts @data
   @data[1..@data.length].each do |row|
     row.each do |value|
       page.should have_content value

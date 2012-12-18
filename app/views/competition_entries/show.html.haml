@@ -1,0 +1,38 @@
+%p#notice= notice
+
+%p
+  %b Name of the Competition:
+  = @competition.name
+%p
+  %b Starttime:
+  = @competition.startTime
+%p
+  %b Endtime:
+  = @competition.endTime
+%p
+  %b User:
+  = @competition.user.name
+
+
+.challenges
+  %table
+    %tr
+      %th Title
+      %th Description
+      %th Validation
+      %th Badge
+      %th Prize
+      %th Points
+    - @competition.challenges.each do |challenge|
+      %tr
+        %td #{ challenge.title }
+        %td #{ challenge.description }
+        %td #{ challenge.validation }
+        %td #{ challenge.badge }
+        %td #{ challenge.prize }
+        %td #{ challenge.points }
+
+
+= link_to 'Edit', edit_competition_path(@competition)
+\|
+= link_to 'Back', competitions_path

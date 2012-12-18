@@ -5,8 +5,8 @@ class Challenge < ActiveRecord::Base
   attr_accessible :badge, :complete, :description, :limit,
                   :points, :prize, :start, :stop, :title, :validation
 
-  validates :title, :description, #:start, :stop, :validation, 
-            :points, :presence => true
+  validates :title, :description, #:start, :stop, 
+            :validation, :points, :presence => true
 
   #validate :start_date_cannot_be_in_the_past,
   #         :end_date_cannot_be_in_the_past,
