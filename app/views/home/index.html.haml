@@ -51,13 +51,14 @@
       .entries
         - @entries.each do |entry|
           .entry
-            = image_tag avatar_url(entry.user), :class => "style_image"
+            //= image_tag avatar_url(entry.user), :class => "style_image"
             %h4 
               = link_to entry.competition_entry.user.name,
-                user_path(entry.user),
+                user_path(entry.competition_entry.user),
                 :class => 'user'
-              %span{:class => "label label-success"}
-                = entry.user.points
+              -# 
+                %span{:class => "label label-success"}
+                  = entry.competition_entry.user.points
             %p
               %h4{:class => "grey"}
                 = entry.challenge.title

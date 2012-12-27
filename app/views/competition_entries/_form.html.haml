@@ -1,7 +1,3 @@
-= debug @competition
-= debug @competition_entry
-
-
 = form_for @competition_entry do |f|
   -@competition.challenges.each do |challenge|
     .challenge
@@ -17,7 +13,7 @@
         Badge: #{ challenge.badge }
         %br
 
-      //= link_to "Complete Challenge", new_competition_entry_challenge_challenge_entries_path(@competition_entry, challenge)
+      = link_to "Complete Challenge", new_competition_entry_challenge_challenge_entry_path(@competition_entry, challenge)
 
 
   .actions

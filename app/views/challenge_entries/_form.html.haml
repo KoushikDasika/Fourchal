@@ -1,1 +1,11 @@
-= debug @competition
+%h2 Challenge Entry
+= form_for @challenge_entry, :url => competition_entry_challenge_challenge_entries_path(@competition_entry, @challenge) do |f|
+  %h3 Title: #{ @challenge.title }
+  %p  Description: #{ @challenge.description }
+  %p  Points: #{ @challenge.points }
+
+  =f.label "Validation Code for completing challenge"
+  %input{ :type => "text", :name => "validation"}
+
+
+  =f.submit "Validate"

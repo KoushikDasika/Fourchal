@@ -25,7 +25,7 @@ class ChallengeEntriesController < ApplicationController
             format.json { render json: @competition_entry.errors, status: :unprocessable_entity }
           end
       else
-        format.html { render action: "new", :status => "Your validation code is wrong!" }
+        format.html { render action: "new", :flash => "Your validation code is wrong!" }
         format.json { render json: @competition_entry.errors, status: :unprocessable_entity }
       end
     end

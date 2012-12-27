@@ -21,4 +21,6 @@ Fourchal::Application.routes.draw do
       resources :challenge_entries
     end
   end
+
+  resources :challenge_entries
 end
