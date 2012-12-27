@@ -1,0 +1,30 @@
+class ChallengeEntriesController < ApplicationController
+  def new
+    @competition = Competition.find(params[:competition_id])
+    @challenge_entry = ChallengeEntry.new
+  end
+
+  def create
+
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def show
+
+  end
+
+  def destroy
+
+  end
+
+  def index
+
+  end
+end

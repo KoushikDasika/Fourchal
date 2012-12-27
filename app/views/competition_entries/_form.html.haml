@@ -1,15 +1,24 @@
--@competition.challenges.each do |challenge|
-  .challenge
-    %p
-      Title: #{ challenge.title }
-      %br
-      Description: #{ challenge.description }
-      %br
-      Points: #{ challenge.points }
-      %br
-      Prize: #{ challenge.prize }
-      %br
-      Badge: #{ challenge.badge }
-      %br
+= debug @competition
+= debug @competition_entry
 
 
+= form_for @competition_entry do |f|
+  -@competition.challenges.each do |challenge|
+    .challenge
+      %p
+        Title: #{ challenge.title }
+        %br
+        Description: #{ challenge.description }
+        %br
+        Points: #{ challenge.points }
+        %br
+        Prize: #{ challenge.prize }
+        %br
+        Badge: #{ challenge.badge }
+        %br
+
+      //= link_to "Complete Challenge", new_competition_entry_challenge_challenge_entries_path(@competition_entry, challenge)
+
+
+  .actions
+    = f.submit 'Save'

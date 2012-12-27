@@ -42,8 +42,8 @@
             %br
             ACCEPTED BY:</br>
             - competition.competition_entries.each do |entry|
-              = link_to (image_tag avatar_url(entry.user, 30), :title => entry.user.name),
-                entry.user
+              = link_to "#{ entry.user.name }", entry.user
+              //= link_to (image_tag avatar_url(entry.user, 30), :title => entry.user.name), entry.user
 
   .span5
     .leaderboard

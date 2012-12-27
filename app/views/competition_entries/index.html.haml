@@ -1,9 +1,7 @@
-%h1 Listing competitions
+%h1 Listing competition entries
 
 %table
   %tr
-    %th Starttime
-    %th Endtime
     %th User
     %th
     %th
@@ -11,8 +9,6 @@
 
   - @competitions.each do |competition|
     %tr
-      %td= competition.startTime
-      %td= competition.endTime
       %td= competition.user.name
       %td= link_to 'Show', competition
       %td= link_to 'Edit', edit_competition_path(competition)
