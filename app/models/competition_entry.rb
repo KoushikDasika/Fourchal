@@ -6,5 +6,6 @@ class CompetitionEntry < ActiveRecord::Base
   attr_accessible :user_id, :competition_id
   has_many :challenge_entries
 
-  #validates :user, :uniqueness => { :scope => :competition }
+  validates :user_id, :uniqueness => { :scope => :competition_id }
 end
+

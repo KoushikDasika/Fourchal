@@ -17,15 +17,15 @@ class ChallengeEntriesController < ApplicationController
                                                  :complete => true)
           if @challenge_entry.save
             format.html {
-          redirect_to edit_competition_competition_entry_path(@competition_entry.competition, @competition_entry, :status => "Great job! Challenge completed!")
+          redirect_to edit_competition_competition_entry_path(@competition_entry.competition, @competition_entry), :notice => "Great job! Challenge completed!"
     }
             format.json { render json: @competition_entry, status: :created, location: @competition }
           else
-            format.html { render action: "new" , :status => "Uh oh, couldn't be saved"}
+            format.html { render action: "new" , :notice => "Uh oh, couldn't be saved"}
             format.json { render json: @competition_entry.errors, status: :unprocessable_entity }
           end
       else
-        format.html { render action: "new", :status => "Your validation code is wrong!" }
+        format.html { render action: "new", :notice => "Your validation code is wrong!" }
         format.json { render json: @competition_entry.errors, status: :unprocessable_entity }
       end
     end
