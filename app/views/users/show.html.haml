@@ -1,8 +1,9 @@
 %h3 User
-%p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
+
+.info
+  %h4 User: #{@user.name}
+  %h4 Email: #{@user.email if @user.email}
+  %h4 Total number of points: #{ @points }
 
 .competitions
   %h4 My Competitions
@@ -20,3 +21,4 @@
   %h4 My Challenge Entries
   - @user.challenge_entries.each do |entry|
     %p challenge
+

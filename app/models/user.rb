@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
   has_many :competitions
   has_many :competition_entries
   has_many :challenge_entries, :through => :competition_entries
+
 end

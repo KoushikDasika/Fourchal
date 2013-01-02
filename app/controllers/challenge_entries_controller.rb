@@ -14,7 +14,8 @@ class ChallengeEntriesController < ApplicationController
       if params[:validation] == @challenge.validation
         @challenge_entry = ChallengeEntry.create(:competition_entry_id => @competition_entry,
                                                  :challenge_id => @challenge,
-                                                 :complete => true)
+                                                 :complete => true,
+                                                 :points => @challenge.points)
           if @challenge_entry.save
             format.html {
           redirect_to edit_competition_competition_entry_path(@competition_entry.competition, @competition_entry), :notice => "Great job! Challenge completed!"

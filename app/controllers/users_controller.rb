@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @points = @user.challenge_entries.where(:complete => true).sum(:points)
   end
 
   def update
