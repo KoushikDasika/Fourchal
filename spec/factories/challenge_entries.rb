@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :challenge_entry do
-    association :competition_entry, strategy: :create
-    association :challenge, strategy: :create
-    complete true
+    competition_entry nil
+    challenge nil
+    complete false
   end
 end

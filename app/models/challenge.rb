@@ -3,7 +3,7 @@ class Challenge < ActiveRecord::Base
   has_many :challenge_entries
 
   attr_accessible :badge, :complete, :description, :limit,
-                  :points, :prize, :start, :stop, :title, :validation, :competition_id
+                  :points, :prize, :start, :stop, :title, :validation
 
   validates :title, :description, #:start, :stop, 
             :validation, :points, :presence => true
