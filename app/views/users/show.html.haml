@@ -14,11 +14,14 @@
 .competition_entries
   %h4 My Competition Entries
   - @user.competition_entries.each do |entry|
-    = link_to user_competition_entry_path(@user, entry)
+    = link_to entry.competition.name,
+      edit_competition_competition_entry_path(entry.competition.id, entry)
     %br
 
 .challenge_entries
   %h4 My Challenge Entries
   - @user.challenge_entries.each do |entry|
-    %p challenge
+    = link_to entry.challenge.title,
+      edit_competition_competition_entry_path(entry.competition_entry.competition.id, entry)
+    %br
 
