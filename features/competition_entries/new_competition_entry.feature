@@ -9,4 +9,3 @@ Feature: Create a new Competition Entry
     Given there exists a valid competition with challenges
     And I create a second user
     And I accept the correct competition
-    And I create a competition entry

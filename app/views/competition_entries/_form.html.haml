@@ -13,7 +13,7 @@
         Badge: #{ challenge.badge }
         %br
 
-      = link_to "Complete Challenge", new_competition_entry_challenge_challenge_entry_path(@competition_entry, challenge)
+      = link_to "Complete Challenge", new_competition_entry_challenge_challenge_entry_path(@competition_entry.id, challenge.id)
 
 
   .actions

@@ -3,6 +3,17 @@ def create_second_visitor
     :password => "please", :password_confirmation => "please" }
 end
 
+def sign_up
+  delete_user
+  visit '/users/sign_up'
+  fill_in "Name", :with => @visitor[:name]
+  fill_in "Email", :with => @visitor[:email]
+  find("#password_field").set @visitor[:password]
+  find("#password_confirmation_field").set @visitor[:password_confirmation]
+  click_button "Sign up"
+  find_user
+end
+
 def create_second_user
   create_second_visitor
   @user = FactoryGirl.create(:user, email: @visitor[:email])
@@ -25,6 +36,7 @@ end
 
 And /^there exists a valid competition with challenges$/ do
   delete_competition
+  @user.destroy if !@user.nil?
   create_user
   create_competition
 end
@@ -36,6 +48,6 @@ end
 
 And /^I create a competition entry$/ do
   #visit("/competitions/#{@competition.id}/competition_entries/new")
-  #debugger
+  debugger
   click_button("Save")
 end

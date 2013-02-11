@@ -22,8 +22,6 @@ describe Challenge do
   it "should validate the presence of its key attributes" do
     subject.should validate_presence_of(:title)
     subject.should validate_presence_of(:description)
-    #subject.should validate_presence_of(:start)
-    #subject.should validate_presence_of(:stop)
     subject.should validate_presence_of(:validation)
     subject.should validate_presence_of(:points)
   end
