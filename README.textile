@@ -25,7 +25,9 @@ h2. Email
 The application is configured to send email using a SendGrid account.
 
 h2. Deployment
-Try a live version of this project on <a href="www.fourchal.com">Heroku</a>
+
+Try a live version of this project on <a href="http://www.fourchal.com">Heroku</a>
 
 h2. Future Versions
+
 This project is in the middle of a complete rewrite.  Keep an eye out for it
